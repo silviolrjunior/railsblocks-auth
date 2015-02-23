@@ -1,0 +1,9 @@
+language: ruby
+cache: bundler
+bundler_args: --without production
+gemfile:
+  - gemfiles/rails4_2.gemfile
+script: bundle exec rspec spec
+rvm:
+  - 2.2.0
+env: CODECLIMATE_REPO_TOKEN=4754c3d4b0dafb90133abe3a2fe73356ad54ad047f4aa6aeea0fde3d2114ed7d
