@@ -1,3 +1,5 @@
+require 'devise'
+
 module Railsblocks
   module Auth
     class Engine < ::Rails::Engine
@@ -18,6 +20,19 @@ module Railsblocks
 
       initializer "railsblocks-auth.factories", :after => "factory_girl.set_factory_paths" do
         FactoryGirl.definition_file_paths << File.expand_path('../../../../spec/factories', __FILE__) if defined?(FactoryGirl)
+      end
+      
+      initializer 'railsblocks-auth' do |app|
+        # binding.pry
+        Railsblocks::Auth.instance_eval do
+          array = Array(app.config.i18n.available_locales || [])
+          pattern = array.blank? ? '*' : "{#{array.join ','}}"
+
+          files = Dir[File.join(File.dirname(__FILE__), '../locales', "#{pattern}.yml")]
+          I18n.load_path.concat(files)
+
+          ActionView::Base.send :include, Railsblocks::Auth::DeviseBootstrapViewsHelper
+        end
       end
 
 
@@ -40,7 +55,6 @@ module Railsblocks
           end
         end
       end
-
     end
   end
 end
