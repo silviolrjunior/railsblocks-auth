@@ -3,3 +3,4 @@ log/*.log
 pkg/
 vendor/bundle
 vendor/ruby
+spec/internal/db/

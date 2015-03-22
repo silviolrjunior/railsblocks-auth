@@ -1,3 +1,4 @@
+# Load engines view (not devise one) on wrapper app
 require 'devise'
 
 module Railsblocks
@@ -19,7 +20,7 @@ module Railsblocks
 
 
       initializer "railsblocks-auth.factories", :after => "factory_girl.set_factory_paths" do
-        FactoryGirl.definition_file_paths << File.expand_path('../../../../spec/factories', __FILE__) if defined?(FactoryGirl)
+        FactoryGirl.definition_file_paths << File.expand_path('../../../spec/factories', __FILE__) if defined?(FactoryGirl)
       end
       
       initializer 'railsblocks-auth' do |app|
