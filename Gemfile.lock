@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    railsblocks-auth (0.0.4)
+    railsblocks-auth (0.0.5)
       devise (~> 3.4)
       rails (~> 4.2.0)
       rolify (~> 4.0.0)
