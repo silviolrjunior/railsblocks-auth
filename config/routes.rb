@@ -1,6 +1,8 @@
 Railsblocks::Auth::Engine.routes.draw do
-  # devise_for :users, class_name: "Railsblocks::Auth::User"
-  devise_for :users, class_name: "Railsblocks::Auth::User", path: "auth", module: :devise, path_names: 
+  # specifying endpoint
+  root "auth#index"
+
+  devise_for :users, class_name: "Railsblocks::Auth::User", path: "auth", module: :devise, controllers: { sessions: 'railsblocks/auth/sessions'}, path_names: 
     {
       sign_in: 'login',
       sign_out: 'logout',
