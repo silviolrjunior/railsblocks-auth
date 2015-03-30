@@ -10,7 +10,7 @@ require 'database_cleaner'
 Dir[Railsblocks::Auth::Engine.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 # load factories
-Dir[Railsblocks::Auth::Engine.root.join("spec/factories/**/*.rb")].each {|f| require f}
+# Dir[Railsblocks::Auth::Engine.root.join("spec/factories/**/*.rb")].each {|f| require f}
 
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
