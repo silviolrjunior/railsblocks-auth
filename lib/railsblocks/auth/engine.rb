@@ -24,7 +24,6 @@ module Railsblocks
       end
       
       initializer 'railsblocks-auth' do |app|
-        # binding.pry
         Railsblocks::Auth.instance_eval do
           array = Array(app.config.i18n.available_locales || [])
           pattern = array.blank? ? '*' : "{#{array.join ','}}"
