@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.description = "Authentication system based on devise, so everyblock knows how to handle user authorization"
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md", "spec/factories/**/*.rb"]
+  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md", "spec/factories/**/*.rb", "spec/support/**/*.rb"]
 
   s.add_dependency "rails", "~> 4.2.0"
   s.add_dependency "devise", "~> 3.4"
