@@ -28,6 +28,8 @@ Combustion.initialize! :all
 
 require 'rspec/rails'
 
+require 'activetrail'
+
 RSpec.configure do |config|
   config.use_transactional_fixtures = true
 end
