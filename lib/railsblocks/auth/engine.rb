@@ -35,6 +35,11 @@ module Railsblocks
         end
       end
 
+      initializer "railsblocks-auth.active_admin" do
+        if defined?(::ActiveAdmin)
+          ::ActiveAdmin.application.load_paths << File.join(File.expand_path('../../../../', __FILE__), "app", "admin")
+        end
+      end
 
       # Initialize engine dependencies on wrapper application
       Gem.loaded_specs["railsblocks-auth"].dependencies.each do |d|

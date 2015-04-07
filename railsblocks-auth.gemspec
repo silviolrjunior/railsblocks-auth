@@ -16,15 +16,18 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md", "spec/factories/**/*.rb", "spec/support/**/*.rb"]
 
+  s.add_dependency "activetrail", "~> 0"
   s.add_dependency "rails", "~> 4.2.0"
   s.add_dependency "devise", "~> 3.4"
   s.add_dependency "rolify", "~> 4.0.0"
+  s.add_dependency "trailblazer", "~> 0.2"
   
   s.add_development_dependency "sqlite3", '~> 1.3'
   s.add_development_dependency "codeclimate-test-reporter", '~> 0.4'
   s.add_development_dependency 'combustion', '~> 0.5.2'
   s.add_development_dependency "database_cleaner", '~> 1.4'
   s.add_development_dependency "factory_girl_rails", '~> 4.5'
+  s.add_development_dependency "faker", '~> 1.4'
   s.add_development_dependency 'guard', '~> 2'
   s.add_development_dependency 'guard-rspec', '~> 4'
   s.add_development_dependency 'listen', '~> 2.7.12'

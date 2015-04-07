@@ -1,3 +1,7 @@
+require 'trailblazer'
+require 'trailblazer/autoloading'
+require 'activeadmin'
+require 'activetrail'
 require "railsblocks/auth/engine"
 
 module Railsblocks
