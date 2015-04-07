@@ -37,7 +37,6 @@ PATH
       devise (~> 3.4)
       rails (~> 4.2.0)
       rolify (~> 4.0.0)
-      trailblazer (~> 0.2)
 
 GEM
   remote: https://rubygems.org/
@@ -78,7 +77,9 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    activetrail (0.1.5)
+    activetrail (0.1.6)
+      activeadmin (~> 1.0.0.pre1)
+      trailblazer (~> 0.2)
     adamantium (0.2.0)
       ice_nine (~> 0.11.0)
       memoizable (~> 0.4.0)
