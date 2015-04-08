@@ -15,6 +15,7 @@ module Railsblocks
               render json: {
                 "csrf-param" => request_forgery_protection_token,
                 "csrf-token" => form_authenticity_token
+
               }
             else
               render json: {}
