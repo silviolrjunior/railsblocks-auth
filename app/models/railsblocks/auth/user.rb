@@ -17,7 +17,7 @@ module Railsblocks
       has_one :profile
       has_many :phones, through: :profile, class_name: "Railsblocks::Auth::Profile::Phone"
       accepts_nested_attributes_for :profile, allow_destroy: true
-      
+
       def verify_if_use_token
         if use_token?
           if authentication_token.blank?

@@ -1,11 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
 module Railsblocks::Auth
   RSpec.describe EmberController, type: :controller do
     
     describe "GET #current_user_json" do
       before :each do
-        @user = Railsblocks::Auth::User.create({email: 'example@example.com', password: '12345678'})        
+        @user = Railsblocks::Auth::User.create(
+          { email: "example@example.com", password: "12345678" }
+        )
       end
 
       it "responds successfully with an HTTP 200 status code" do
@@ -16,7 +18,9 @@ module Railsblocks::Auth
       context "current_user is setted" do
         before :each do 
           allow(controller).to receive(:current_user) { @user }
-          @user_json = Railsblocks::Auth::UserSerializer.new(@user, :scope => @user, :root => false).to_json
+          @user_json = Railsblocks::Auth::UserSerializer.new(
+            @user, scope: @user, root: false
+          ).to_json
         end
         it "loads a user serializer" do
           subject.current_user_json.should eq @user_json
@@ -33,6 +37,5 @@ module Railsblocks::Auth
         end
       end
     end
-
   end
 end
