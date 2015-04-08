@@ -9,10 +9,6 @@ require 'database_cleaner'
 
 Dir[Railsblocks::Auth::Engine.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-# load factories
-Dir[Railsblocks::Auth::Engine.root.join("spec/factories/**/*.rb")].each {|f| require f}
-
-
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
 # run as spec files by default. This means that files in spec/support that end
@@ -34,7 +30,7 @@ ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
-  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+  #config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -57,12 +53,16 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   # Factory Girl
   config.include FactoryGirl::Syntax::Methods
+  config.infer_base_class_for_anonymous_controllers = false
+  config.include Devise::TestHelpers, :type => :controller
+  config.extend ControllerMacros, :type => :controller
+
   config.before(:suite) do
     begin
       DatabaseCleaner.strategy = :transaction
       DatabaseCleaner.clean_with(:truncation)
       DatabaseCleaner.start
-      FactoryGirl.lint
+      #FactoryGirl.lint
     ensure
       DatabaseCleaner.clean
     end

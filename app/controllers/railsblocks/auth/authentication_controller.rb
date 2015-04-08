@@ -1,6 +1,6 @@
 module Railsblocks
   module Auth
-    class AuthenticationController < ActionController::Base
+    module AuthenticationController
       def self.included m
         return unless m < ActionController::Base
         m.before_action :authenticate_user!

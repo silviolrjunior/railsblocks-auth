@@ -20,11 +20,10 @@ module Railsblocks
 
 
       initializer "railsblocks-auth.factories", :after => "factory_girl.set_factory_paths" do
-        FactoryGirl.definition_file_paths << File.expand_path('../../../spec/factories', __FILE__) if defined?(FactoryGirl)
+        FactoryGirl.definition_file_paths << File.expand_path('../../../../spec/factories', __FILE__) if defined?(FactoryGirl)
       end
       
       initializer 'railsblocks-auth' do |app|
-        # binding.pry
         Railsblocks::Auth.instance_eval do
           array = Array(app.config.i18n.available_locales || [])
           pattern = array.blank? ? '*' : "{#{array.join ','}}"
@@ -36,6 +35,11 @@ module Railsblocks
         end
       end
 
+      initializer "railsblocks-auth.active_admin" do
+        if defined?(::ActiveAdmin)
+          ::ActiveAdmin.application.load_paths << File.join(File.expand_path('../../../../', __FILE__), "app", "admin")
+        end
+      end
 
       # Initialize engine dependencies on wrapper application
       Gem.loaded_specs["railsblocks-auth"].dependencies.each do |d|

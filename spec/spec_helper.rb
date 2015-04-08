@@ -1,3 +1,17 @@
+require 'simplecov'
+require 'metric_fu/metrics/rcov/simplecov_formatter'
+SimpleCov.profiles.define 'myprofile' do
+  add_filter 'vendor' # Don't include vendored stuff
+end
+
+SimpleCov.formatter = SimpleCov::Formatter::MetricFu
+# or
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  SimpleCov::Formatter::MetricFu
+  ]
+SimpleCov.start 'myprofile'
+
 require "codeclimate-test-reporter"
 
 CodeClimate::TestReporter.configure do |config|
@@ -13,6 +27,8 @@ require 'combustion'
 Combustion.initialize! :all
 
 require 'rspec/rails'
+
+require 'activetrail'
 
 RSpec.configure do |config|
   config.use_transactional_fixtures = true
