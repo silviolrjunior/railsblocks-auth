@@ -12,3 +12,5 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+gem 'trailblazer', github: 'fernandes/trailblazer', branch: 'master'
+gem 'activeadmin', github: 'activeadmin'

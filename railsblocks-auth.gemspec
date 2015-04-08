@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.md", "spec/factories/**/*.rb", "spec/support/**/*.rb"]
 
+  s.add_dependency "activetrail", "~> 0"
   s.add_dependency "active_model_serializers", "~> 0.9.3"
   s.add_dependency "rails", "~> 4.2.0"
   s.add_dependency "devise", "~> 3.4"
@@ -26,12 +27,15 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'combustion', '~> 0.5.2'
   s.add_development_dependency "database_cleaner", '~> 1.4'
   s.add_development_dependency "factory_girl_rails", '~> 4.5'
+  s.add_development_dependency "faker", '~> 1.4'
   s.add_development_dependency 'guard', '~> 2'
   s.add_development_dependency 'guard-rspec', '~> 4'
   s.add_development_dependency 'listen', '~> 2.7.12'
+  s.add_development_dependency "metric_fu", '~> 4'
   s.add_development_dependency 'pry', '~> 0.10'
   s.add_development_dependency "rspec-rails", '~> 3.2'
   s.add_development_dependency "shoulda-matchers", '~> 2.8'
+  s.add_development_dependency "simplecov", '~> 0.9'
   s.add_development_dependency "thor", '~> 0.19'
 
 end
